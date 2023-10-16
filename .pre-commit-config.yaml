@@ -1,0 +1,83 @@
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v4.5.0
+      hooks:
+        - id: trailing-whitespace # trims trailing whitespace
+        - id: check-yaml # attempts to load all yaml files to verify syntax
+        - id: check-added-large-files # prevent giant files from being committed
+        - id: detect-private-key # detects the presence of private keys
+        - id: check-merge-conflict # checks for files that contain merge conflict strings
+        - id: check-executables-have-shebangs # ensures that (non-binary) executables have a shebang
+        - id: check-shebang-scripts-are-executable # ensures that (non-binary) files with a shebang are executable
+        - id: destroyed-symlinks # detects symlinks which are changed to regular files with a content of a path which that symlink was pointing to
+        - id: check-symlinks # checks for symlinks which do not point to anything
+        - id: check-json #checks json files for parseable syntax
+        - id: end-of-file-fixer # ensures that a file is either empty, or ends with one newline
+          args: [--no-ensure-ascii, --autofix]
+    # YAML
+    - repo: https://github.com/adrienverge/yamllint
+      rev: v1.32.0
+      hooks:
+        - id: yamllint
+          args: [-c=.yamllint] # this hook runs yamllint
+    - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks 
+      rev: v2.10.0
+      hooks:
+        - id: pretty-format-yaml # this hook sets a standard for formatting YAML files
+        - id: pretty-format-golang # runs gofmt over golang source files
+    # Go
+    - repo: https://github.com/golangci/golangci-lint
+      rev: v1.54.2
+      hooks:
+        - id: golangci-lint # fast linters runner for Go
+    # Markdown
+    - repo: https://github.com/igorshubovych/markdownlint-cli 
+      rev: v0.37.0
+      hooks:
+        - id: markdownlint # check markdown files and flag style issues
+    # Python
+    - repo: https://github.com/PyCQA/flake8
+      rev: 6.1.0
+      hooks:
+        - id: flake8 # `flake8` is a command-line utility for enforcing style consistency across Python projects
+    - repo: https://github.com/PyCQA/pylint
+      rev: v3.0.1
+      hooks:
+        - id: pylint
+    - repo: https://github.com/pre-commit/mirrors-autopep8
+      rev: v2.0.4
+      hooks:
+        - id: autopep8
+    # Shell
+    - repo: https://github.com/jumanjihouse/pre-commit-hooks
+      rev: 3.0.0
+      hooks:
+        - id: shellcheck # shell scripts conform to shellcheck 
+        - id: script-must-have-extension # non-executable shell script filename ends in .sh 
+        - id: script-must-not-have-extension # executable shell script omits the filename extension
+        - id: shfmt # check shell style with shfmt 
+    # # Terraform
+    # - repo: https://github.com/antonbabenko/pre-commit-terraform
+    #   rev: v1.77.1
+    #   hooks:
+    #     - id: terraform_fmt # reformat all Terraform configuration files to a canonical format.
+    #     - id: terraform_docs # inserts input and output documentation into README.md
+    #     - id: terraform_validate # validates all Terraform configuration files.
+    #     - id: terraform_tflint # validates all Terraform configuration files with TFLint
+    #     - id: terragrunt_fmt # reformat all Terragrunt configuration files (*.hcl) to a canonical format.
+    #     - id: terragrunt_validate # validates all Terragrunt configuration files (*.hcl)
+    # k8s
+    - repo: https://github.com/bridgecrewio/checkov.git
+      rev: 2.5.6
+      hooks:
+        - id: checkov # check the compliance of Kubernetes definition files according to best development practices and custom rules
+          args: [-d .]
+    - repo: https://github.com/Agilicus/pre-commit-hook-k8svalidate.git
+      rev: v0.2.0
+      hooks:
+        - id: k8svalidate # check the compliance of Kubernetes definition files according to the version of Kubernetes used
+          files: .yaml$
+    - repo: https://github.com/Yelp/detect-secrets
+      rev: v1.4.0
+      hooks:
+        - id: detect-secrets # detect any sensitive data and avoid their storage in the code
