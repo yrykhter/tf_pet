@@ -7,3 +7,4 @@ The main goal of this project is using tools as:
 * [Terratest](https://terratest.gruntwork.io/)
 * [Jsonnet](https://jsonnet.org/)
 * [Terraform docs](https://terraform-docs.io/)
+* Pre-commit file
