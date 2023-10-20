@@ -12,6 +12,17 @@ variable "gc_region" {
   type        = string
 }
 
-variable "instance_name" {}
-variable "instance_type" {}
-variable "label" {}
+variable "instance_name" {
+  description = "Instance name"
+  type = string
+}
+
+variable "instance_type" {
+  description = "Instance type"
+  type = string
+}
+
+variable "label" {
+  description = "Label"
+  type = string
+}
