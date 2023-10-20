@@ -1,4 +1,4 @@
-# Small TF project
+# Using Terragrunt for Terraform modules
 
 The main goal of this project is using tools as:
 
