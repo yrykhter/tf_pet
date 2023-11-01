@@ -1,0 +1,19 @@
+formatter: markdown
+output:
+  file: test.md
+  mode: replace
+  template: |-
+    {{ .Content }}
+# output-values:
+#   enabled: false
+#   from: ""
+settings:
+  anchor: false
+  default: true
+  escape: true
+  hide-empty: false
+  html: false
+  indent: 2
+  required: true
+  sensitive: true
+  type: true
