@@ -14,15 +14,15 @@ variable "gc_region" {
 
 variable "instance_name" {
   description = "Instance name"
-  type = string
+  type        = string
 }
 
 variable "instance_type" {
   description = "Instance type"
-  type = string
+  type        = string
 }
 
-variable "label" {
-  description = "Label"
-  type = string
+variable "env" {
+  description = "Environments"
+  type        = string
 }
