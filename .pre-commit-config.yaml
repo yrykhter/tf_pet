@@ -27,7 +27,7 @@ repos:
       - id: pretty-format-golang # runs gofmt over golang source files
   # Go
   - repo: https://github.com/golangci/golangci-lint
-    rev: v1.55.1
+    rev: v1.55.2
     hooks:
       - id: golangci-lint # fast linters runner for Go
   # Markdown
@@ -68,7 +68,7 @@ repos:
       - id: terragrunt_validate # validates all Terragrunt configuration files (*.hcl)
   # k8s
   - repo: https://github.com/bridgecrewio/checkov.git
-    rev: 3.0.16
+    rev: 3.0.19
     hooks:
       - id: checkov # check the compliance of Kubernetes definition files according to best development practices and custom rules
         args: [-d .]
