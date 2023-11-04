@@ -15,3 +15,15 @@ variable "env" {
   type        = string
   default     = "qa"
 }
+
+variable "instance_name" {
+  description = "Instance name"
+  type        = string
+  default     = "_vm"
+}
+
+variable "instance_type" {
+  description = "Instance type"
+  type        = string
+  default     = "n2-standard-2"
+}
