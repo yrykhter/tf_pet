@@ -5,7 +5,6 @@ locals {
   ]
 }
 
-
 module "buckets_for_env" {
   bucket_name = local.buckets_list
   source      = "./modules/buckets"
