@@ -8,7 +8,7 @@ resource "google_compute_instance" "vm" {
     initialize_params {
       image = "debian-cloud/debian-11"
       labels = {
-        environment = var.label
+        environment = var.env
       }
     }
   }
