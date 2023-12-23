@@ -1,11 +1,11 @@
 # Using Terragrunt for Terraform modules
 
-## UNDER DEVELOPMENT!!
-
 The main goal of this project is using tools as:
 
 - [x] [Terragrunt](https://terragrunt.gruntwork.io/)
-- [ ] [Atlantis](https://www.runatlantis.io/)
+- [x] [Atlantis](https://www.runatlantis.io/)
+  - official documentation is nice to start and config
+
 - [x] [Terratest](https://terratest.gruntwork.io/)
   - can be used for Terraform, Docker, Kubernetes and much more
   - use ```cd tests; go mod init "<MODULE_NAME>";  go mod tidy``` for configure dependencies
