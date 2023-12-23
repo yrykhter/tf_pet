@@ -1,0 +1,51 @@
+version: 3
+automerge: false
+parallel_apply: false
+parallel_plan: false
+projects:
+- dir: modules/buckets
+  autoplan: 
+    enabled: true
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+- dir: modules/vm
+  autoplan: 
+    enabled: true
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+- dir: environments/us-central-1/dev/vm
+  autoplan:
+    enabled: true
+    when_modified:
+    - '*.hcl'
+    - '*.tf*'
+  workflow: 
+    plan:
+      steps:
+      - init:
+          extra_args: ["-lock=false"]
+      - plan:
+          extra_args: ["-lock=false"]
+    apply:
+      steps:
+      - apply:
+          extra_args: ["-lock=false"]
+workflows:
+  terragrunt:
+    plan:
+      steps:
+      - run: /usr/local/bin/terragrunt plan -no-color -out $PLANFILE
+    apply:
+      steps:
+      - run: /usr/local/bin/terragrunt apply -no-color $planfile
+  terraform:
+    plan:
+      steps:
+      - init:
+        extra_args: ["-lock=false"]
+    apply:
+      steps:
+      - init:
+        extra_args: ["-lock=false"]
